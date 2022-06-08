@@ -1,7 +1,7 @@
 node {
   def server = Artifactory.server 'jenkinsartifacts.jfrog.io'
   def myGradleContainer = docker.image('gradle:jdk11-alpine')
-  RUN apk update && apk add bash
+  RUN apk add --no-cache bash
   myGradleContainer.pull()
   stage('prep') {
     checkout scm
